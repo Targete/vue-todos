@@ -1,11 +1,20 @@
 <template>
   <div id="home">
     <nav-bar class="home-nav"><div slot="center">购物街</div></nav-bar>
+    <scroll :probe-type="3"
+            :pull-up-load="true"
+            class="content"
+            :data="[showGoodsList]"
+            @pullingUp="loadMore"
+            @scroll="contentScroll"
+            ref="scroll">
     <swiper :banners="banners"/>
     <recommend-menu :recommends="recommends"/>
     <hot/>
     <tab-control/>
     <goods-list :goods="showGoodsList"></goods-list>
+    
+    </scroll>
   </div>
 </template>
 
@@ -13,6 +22,7 @@
   import NavBar from 'components/common/navbar/NavBar'
   // import Scroll from 'components/common/scroll/Scroll'
   import TabControl from 'components/content/tabControl/TabControl'
+  import Scroll from 'components/common/scroll/Scroll'
 
   import Swiper from './subComponents/HomeSwiper'
   import RecommendMenu from './subComponents/RecommendMenu'
@@ -30,6 +40,7 @@
       RecommendMenu,
       Hot,
       TabControl,
+      Scroll,
       GoodsList,
       // Scroll,
     },
