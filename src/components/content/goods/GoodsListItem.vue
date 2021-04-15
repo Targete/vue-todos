@@ -1,5 +1,5 @@
 <template>
-  <div class="goods-item" @click="itemClick">
+  <div class="goods-item">
     <img :src="showImage">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>

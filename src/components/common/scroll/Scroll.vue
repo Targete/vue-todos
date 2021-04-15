@@ -42,7 +42,7 @@
       }
     },
     mounted() {
-      setTimeout(this._initScroll, 20)
+        this._initScroll
     },
     methods: {
       _initScroll() {
@@ -89,6 +89,6 @@
 
 <style scoped>
   .wrapper {
-    overflow: hidden;
+    /* overflow: hidden; */
   }
 </style>

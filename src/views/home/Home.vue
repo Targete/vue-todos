@@ -5,13 +5,11 @@
             :pull-up-load="true"
             class="content"
             :data="[showGoodsList]"
-            @pullingUp="loadMore"
-            @scroll="contentScroll"
             ref="scroll">
     <swiper :banners="banners"/>
     <recommend-menu :recommends="recommends"/>
     <hot/>
-    <tab-control/>
+    <tab-control ref="contentTab" class="tab-control" @tabClick="tabClick"></tab-control>
     <goods-list :goods="showGoodsList"></goods-list>
     
     </scroll>
@@ -96,6 +94,21 @@
           this.$refs.scroll.finishedPullUp()
         })
       },
+      tabClick(index) {
+        switch (index) {
+          case 0:
+            this.currentType = POP
+            break
+          case 1:
+            this.currentType = NEW
+            break
+          case 2:
+            this.currentType = SELL
+            break
+        }
+
+        this.$refs.contentTab.currentIndex = index
+      },
 
     }
   }
@@ -118,7 +131,8 @@
   }
 
   .tab-control {
-    position: relative;
+    position: sticky;
+    top:44px;
     z-index: 9;
   }
 
