@@ -5,7 +5,7 @@ const Home = () => import('@/views/home/Home')
 const Category = () => import('@/views/home/Home')
 const Cart = () => import('@/views/home/Home')
 const Profile = () => import('@/views/home/Home')
-const Detail = () => import('@/views/home/Home')
+const Detail = () => import('@/views/detail/Detail')
 
 Vue.use(VueRouter)
 
@@ -32,10 +32,10 @@ const router = new VueRouter({
       component: Profile
     },
     {
-      path: '/detail',
+      path:'/detail/:iid',
       component: Detail
-    }
-  ],
+  }
+],
   mode: 'history'
 })
 
